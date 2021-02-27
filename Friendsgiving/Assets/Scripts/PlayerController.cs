@@ -15,4 +15,10 @@ public class PlayerController : MonoBehaviour
     {
         
     }
+
+    //Called before any physics calculations
+    private void FixedUpdate()
+    {
+        
+    }
 }
