@@ -5,13 +5,13 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemy;
-    public int xPos;
-    public int yPos;
-    public int enemyCount;
-    public int xRangeMin;
-    public int xRangeMax;
-    public int yRangeMin;
-    public int yRangeMax;
+    private float xPos;
+    private float yPos;
+    private int enemyCount;
+    public float xRangeMin;
+    public float xRangeMax;
+    public float yRangeMin;
+    public float yRangeMax;
     
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator EnemySpawn()
     {
-        while(enemyCount < 5)
+        while(enemyCount < 4)
         {
             xPos = Random.Range(xRangeMin, xRangeMax);
             yPos = Random.Range(yRangeMin, yRangeMax);

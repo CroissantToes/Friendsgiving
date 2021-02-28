@@ -11,6 +11,9 @@ public class GameController : MonoBehaviour
 
     public GameObject player;
     public GameObject enemies;
+    public GameObject enemySpawner;
+    public GameObject friendSpawner;
+    public AudioSource music;
 
     // Start is called before the first frame update
     void Start()
@@ -33,24 +36,30 @@ public class GameController : MonoBehaviour
         {
             if (lineCounter == 0)
             {
-                lines.text = "You used to feed the birds with your wife, but that was a long time ago.";
+                lines.text = "You remember feeding the birds with your wife.";
                 lineCounter++;
             }
             else if (lineCounter == 1)
             {
-                lines.text = "She's gone now. The only time you still feel close to her is when you go see the birds.";
+                lines.text = "After she left, it’s been harder to make friends.";
                 lineCounter++;
             }
             else if (lineCounter == 2)
             {
-                lines.text = "Reclaim your happiness by collecting bird friends.";
+                lines.text = "Maybe if you make some friends, you’ll be happier… \n collect bird friends to build happiness!";
                 lineCounter++;
             }
             else
             {
+            //starts first level
+            Debug.Log("working");
                 screen.gameObject.SetActive(false);
                 player.gameObject.SetActive(true);
                 enemies.gameObject.SetActive(true);
+                enemySpawner.gameObject.SetActive(true);
+                friendSpawner.gameObject.SetActive(true);
+                music.Play();
+
             }
         }
 
