@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 level2;
     public Vector3 level3;
     public Text lifeText;
-    public Canvas nextLevel;
+    public GameObject nextLevel;
 
     void Start()
     {
@@ -29,16 +29,31 @@ public class PlayerController : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 
-        
+        //checks health amount
+        if (health == 4)
+        {
+            NextLevelScreen();
+            transform.position = level2;
+            health = 1;
+        }
+
+        if (health > 4)
+        {
+            NextLevelScreen();
+            transform.position = level3;
+            health = 1;
+        }
 
         //game over
-        if(health < 1)
+        if (health < 1)
         {
             SceneManager.LoadScene("Main");
         }
 
         SetHealthText();
     }
+
+  
 
     private void FixedUpdate()
     {
@@ -78,19 +93,5 @@ public class PlayerController : MonoBehaviour
     public void NextLevel()
     {
         nextLevel.gameObject.SetActive(false);
-        //checks health amount
-        if (health == 4)
-        {
-            transform.position = level2;
-            health = 1;
-        }
-
-        if (health > 4)
-        {
-            transform.position = level3;
-            health = 1;
-        }
-
-
     }
 }
