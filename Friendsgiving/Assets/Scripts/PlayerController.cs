@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 level2;
     public Vector3 level3;
     public Text lifeText;
+    public Canvas nextLevel;
 
     void Start()
     {
@@ -24,21 +25,13 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        //gets directional input from keyboard
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 
-        if(health == 4)
-        {
-            transform.position = level2;
-            health = 1;
-        }
+        
 
-        if(health == 5)
-        {
-            transform.position = level3;
-            health = 1;
-        }
-
+        //game over
         if(health < 1)
         {
             SceneManager.LoadScene("Main");
@@ -49,9 +42,11 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //moves character
         body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
     }
 
+    //interactions with friends and enemies
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.CompareTag("Friend"))
@@ -69,8 +64,33 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    //changes health display
     void SetHealthText()
     {
         lifeText.text = "Health: " + health.ToString();
+    }
+
+    void NextLevelScreen()
+    {
+        nextLevel.gameObject.SetActive(true);
+    }
+
+    public void NextLevel()
+    {
+        nextLevel.gameObject.SetActive(false);
+        //checks health amount
+        if (health == 4)
+        {
+            transform.position = level2;
+            health = 1;
+        }
+
+        if (health > 4)
+        {
+            transform.position = level3;
+            health = 1;
+        }
+
+
     }
 }
