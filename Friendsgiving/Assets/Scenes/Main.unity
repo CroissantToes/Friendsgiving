@@ -385,6 +385,7 @@ MonoBehaviour:
   level3: {x: 0, y: 0}
   lifeText: {fileID: 707939046}
   nextLevel: {fileID: 1111423274}
+  victory: {fileID: 0}
 --- !u!61 &165571090
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15850,7 +15851,7 @@ GameObject:
   m_Component:
   - component: {fileID: 838353521}
   m_Layer: 0
-  m_Name: EnemySpawner3
+  m_Name: Spawner3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15881,7 +15882,7 @@ GameObject:
   - component: {fileID: 873311591}
   - component: {fileID: 873311590}
   m_Layer: 0
-  m_Name: EnemySpawner2
+  m_Name: Spawner2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15900,6 +15901,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
+  friend: {fileID: 0}
   xRangeMin: 0
   xRangeMax: 0
   yRangeMin: 0
@@ -70086,7 +70088,7 @@ GameObject:
   - component: {fileID: 2095890061}
   - component: {fileID: 2095890060}
   m_Layer: 0
-  m_Name: EnemySpawner1
+  m_Name: Spawner1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70105,6 +70107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 2468181353966840836, guid: d60b777467de80e4a8c890468f97076e, type: 3}
+  friend: {fileID: 0}
   xRangeMin: -11.5
   xRangeMax: 13.5
   yRangeMin: -6.5

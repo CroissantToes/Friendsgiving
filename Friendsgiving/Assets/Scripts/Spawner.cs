@@ -5,6 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public GameObject enemy;
+    public GameObject friend;
     private float xPos;
     private float yPos;
     public static int enemyCount;
@@ -20,24 +21,30 @@ public class Spawner : MonoBehaviour
         StartCoroutine(Spawn());
     }
 
+    private void Update()
+    {
+        Debug.Log(friendCount);
+    }
+
     IEnumerator Spawn()
     {
+        while (friendCount < 1)
+        {
+            xPos = Random.Range(xRangeMin, xRangeMax);
+            yPos = Random.Range(yRangeMin, yRangeMax);
+            Instantiate(friend, new Vector3(xPos, yPos, 0), Quaternion.identity);
+            yield return new WaitForSeconds(0.1f);
+            friendCount++;
+        }
         while(enemyCount < 4)
         {
             xPos = Random.Range(xRangeMin, xRangeMax);
             yPos = Random.Range(yRangeMin, yRangeMax);
             Instantiate(enemy, new Vector3(xPos, yPos, 0), Quaternion.identity);
-            yield return new WaitForSeconds(4.0f);
+            yield return new WaitForSeconds(1.0f);
             enemyCount++;
         }
-        while(friendCount < 1)
-        {
-            xPos = Random.Range(xRangeMin, xRangeMax);
-            yPos = Random.Range(yRangeMin, yRangeMax);
-            Instantiate(enemy, new Vector3(xPos, yPos, 0), Quaternion.identity);
-            yield return new WaitForSeconds(4.0f);
-            friendCount++;
-        }
+        
 
 
     }

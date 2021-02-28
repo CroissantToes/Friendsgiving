@@ -10,9 +10,7 @@ public class GameController : MonoBehaviour
     public int lineCounter = 0;
 
     public GameObject player;
-    public GameObject enemies;
-    public GameObject enemySpawner;
-    public GameObject friendSpawner;
+    public GameObject spawner;
     public AudioSource music;
     public Font newFont;
 
@@ -57,9 +55,7 @@ public class GameController : MonoBehaviour
             //Debug.Log("working");
                 screen.gameObject.SetActive(false);
                 player.gameObject.SetActive(true);
-                enemies.gameObject.SetActive(true);
-                enemySpawner.gameObject.SetActive(true);
-                friendSpawner.gameObject.SetActive(true);
+                spawner.gameObject.SetActive(true);
                 music.Play();
 
             }
