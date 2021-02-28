@@ -23,35 +23,39 @@ public class GameController : MonoBehaviour
     {
 
         //Quits game
-        if(Input.GetKeyDown("escape"))
+        if (Input.GetKeyDown("escape"))
         {
             Debug.Log("escape key pressed!");
-            Application.Quit();
+            LeaveGame();
         }
     }
-
     public void NextLine()
+        {
+            if (lineCounter == 0)
+            {
+                lines.text = "You used to feed the birds with your wife, but that was a long time ago.";
+                lineCounter++;
+            }
+            else if (lineCounter == 1)
+            {
+                lines.text = "She's gone now. The only time you still feel close to her is when you go see the birds.";
+                lineCounter++;
+            }
+            else if (lineCounter == 2)
+            {
+                lines.text = "Reclaim your happiness by collecting bird friends.";
+                lineCounter++;
+            }
+            else
+            {
+                screen.gameObject.SetActive(false);
+                player.gameObject.SetActive(true);
+                enemies.gameObject.SetActive(true);
+            }
+        }
+
+    public void LeaveGame()
     {
-        if(lineCounter == 0)
-        {
-            lines.text = "You used to feed the birds with your wife, but that was a long time ago.";
-            lineCounter++;
-        }
-        else if(lineCounter == 1)
-        {
-            lines.text = "She's gone now. The only time you still feel close to her is when you go see the birds.";
-            lineCounter++;
-        }
-        else if(lineCounter == 2)
-        {
-            lines.text = "Reclaim your happiness by collecting bird friends.";
-            lineCounter++;
-        }
-        else
-        {
-            screen.gameObject.SetActive(false);
-            player.gameObject.SetActive(true);
-            enemies.gameObject.SetActive(true);
-        }
+        Application.Quit();
     }
 }
