@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 
     float horizontal;
     float vertical;
+    public int health;
 
     public float runSpeed;
 
@@ -25,5 +26,16 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.CompareTag("Friend"))
+        {
+            other.gameObject.SetActive(false);
+            health++;
+        }
+      
+
     }
 }
