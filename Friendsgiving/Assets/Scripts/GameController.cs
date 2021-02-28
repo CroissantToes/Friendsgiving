@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     public GameObject enemySpawner;
     public GameObject friendSpawner;
     public AudioSource music;
+    public Font newFont;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,7 @@ public class GameController : MonoBehaviour
         {
             if (lineCounter == 0)
             {
+                lines.font = newFont;
                 lines.text = "You remember feeding the birds with your wife.";
                 lineCounter++;
             }
@@ -52,7 +54,7 @@ public class GameController : MonoBehaviour
             else
             {
             //starts first level
-            Debug.Log("working");
+            //Debug.Log("working");
                 screen.gameObject.SetActive(false);
                 player.gameObject.SetActive(true);
                 enemies.gameObject.SetActive(true);

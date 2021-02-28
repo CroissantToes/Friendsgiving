@@ -16,7 +16,12 @@ public class PlayerController : MonoBehaviour
     public Vector2 level3;
     public Text lifeText;
     public GameObject nextLevel;
+    public GameObject victory;
     private int levelCounter = 0;
+    private GameObject[] friends;
+    private GameObject[] enemies;
+
+
 
     void Start()
     {
@@ -31,21 +36,27 @@ public class PlayerController : MonoBehaviour
         vertical = Input.GetAxisRaw("Vertical");
 
         //checks health amount
-        if (levelCounter == 1 && health == 3)
+        if (levelCounter == 0 && health == 3)
         {
             NextLevelScreen();
             transform.position = level2;
-            health = 1;
+            Destroyer();
+            levelCounter++;
+            
         }
-        else if (levelCounter == 2 && health == 4)
+        else if (levelCounter == 1 && health == 4)
         {
             NextLevelScreen();
             transform.position = level3;
-            health = 1;
+            Destroyer();
+            levelCounter++;
+            
         }
-        else if (levelCounter == 3 && health == 5)
+        else if (levelCounter == 2 && health == 5)
         {
-
+            Destroyer();
+            victory.gameObject.SetActive(true);
+            
         }
 
         //game over
@@ -73,11 +84,13 @@ public class PlayerController : MonoBehaviour
             //Debug.Log("hit");
             other.gameObject.SetActive(false);
             health++;
+            Spawner.friendCount--;
         }
         else
         {
             other.gameObject.SetActive(false);
             health--;
+            Spawner.enemyCount--;
         }
       
 
@@ -102,5 +115,21 @@ public class PlayerController : MonoBehaviour
     public void StartOver()
     {
         SceneManager.LoadScene("Main");
+    }
+
+    void Destroyer()
+    {
+        friends = GameObject.FindGameObjectsWithTag("Friend");
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        foreach (GameObject item in friends)
+ {
+            Destroy(item);
+        }
+        foreach (GameObject item in enemies)
+ {
+            Destroy(item);
+        }
+        health = 1;
     }
 }
