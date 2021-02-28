@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -32,10 +33,15 @@ public class PlayerController : MonoBehaviour
             health = 1;
         }
 
-        if(health == 4)
+        if(health == 5)
         {
             transform.position = level3;
             health = 1;
+        }
+
+        if(health < 1)
+        {
+            SceneManager.LoadScene("Main");
         }
 
         SetHealthText();
@@ -50,9 +56,14 @@ public class PlayerController : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Friend"))
         {
-            Debug.Log("hit");
+            //Debug.Log("hit");
             other.gameObject.SetActive(false);
             health++;
+        }
+        else
+        {
+            other.gameObject.SetActive(false);
+            health--;
         }
       
 
