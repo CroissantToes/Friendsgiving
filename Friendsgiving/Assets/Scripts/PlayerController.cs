@@ -6,10 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    Rigidbody2D body;
+    Rigidbody2D rb;
 
-    float horizontal;
-    float vertical;
+    Vector2 movement;
     public int health;
     public float runSpeed;
     public Vector2 level2;
@@ -18,17 +17,25 @@ public class PlayerController : MonoBehaviour
     public GameObject nextLevel;
     private int levelCounter = 0;
 
+    public Animator animator;
+
     void Start()
     {
-        body = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         SetHealthText();
     }
 
     void Update()
     {
         //gets directional input from keyboard
-        horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+
+        animator.SetFloat("Horizontal",movement.x);
+        animator.SetFloat("Vertical",movement.y);
+        animator.SetFloat("Speed", movement.sqrMagnitude);
+      
+
 
         //checks health amount
         if (levelCounter == 1 && health == 3)
@@ -62,7 +69,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         //moves character
-        body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+        rb.MovePosition(rb.position + movement * runSpeed * Time.fixedDeltaTime);
     }
 
     //interactions with friends and enemies
