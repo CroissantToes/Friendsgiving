@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: d60716edb96dbe64eafbe51cfedb0b90
+guid: a8fb2941790374c4e9cd045a151d86d9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8467791561255076102
-    second: fox_other_side_0
+      213: -4702544020559098553
+    second: fox_0
   - first:
-      213: 5875852705020149206
-    second: fox_other_side_1
+      213: -5901367661672369291
+    second: fox_1
   - first:
-      213: 8223131817470481199
-    second: fox_other_side_2
+      213: 9004580969247211910
+    second: fox_2
   - first:
-      213: 2963727545135061184
-    second: fox_other_side_3
+      213: -7766446191851538065
+    second: fox_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -80,7 +80,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -92,7 +92,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -103,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fox_other_side_0
+      name: fox_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 6
-        width: 16
-        height: 19
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,20 +117,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 601c8a88f83a38570800000000000000
-      internalID: 8467791561255076102
+      spriteID: 74d00f1e0253dbeb0800000000000000
+      internalID: -4702544020559098553
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fox_other_side_1
+      name: fox_1
       rect:
         serializedVersion: 2
-        x: 44
-        y: 6
-        width: 11
-        height: 19
+        x: 32
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -138,20 +138,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6dd7e3357e83b8150800000000000000
-      internalID: 5875852705020149206
+      spriteID: 5737a05e0612a1ea0800000000000000
+      internalID: -5901367661672369291
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fox_other_side_2
+      name: fox_2
       rect:
         serializedVersion: 2
-        x: 72
-        y: 6
-        width: 16
-        height: 19
+        x: 64
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,20 +159,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f235a89e1de6e1270800000000000000
-      internalID: 8223131817470481199
+      spriteID: 6810937eea2b6fc70800000000000000
+      internalID: 9004580969247211910
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fox_other_side_3
+      name: fox_3
       rect:
         serializedVersion: 2
-        x: 108
-        y: 6
-        width: 11
-        height: 19
+        x: 96
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,8 +180,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c8d0d2ff76412920800000000000000
-      internalID: 2963727545135061184
+      spriteID: f69f08f365a083490800000000000000
+      internalID: -7766446191851538065
       vertices: []
       indices: 
       edges: []
