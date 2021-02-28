@@ -18,35 +18,38 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(Spawn());
+        
+        friendCount = 0;
+        enemyCount = 0;
     }
 
     private void Update()
     {
-        Debug.Log(friendCount);
-    }
-
-    IEnumerator Spawn()
-    {
-        while (friendCount < 1)
+        //Debug.Log(friendCount);
+        //Debug.Log(enemyCount);
+        if (friendCount < 1)
         {
             xPos = Random.Range(xRangeMin, xRangeMax);
             yPos = Random.Range(yRangeMin, yRangeMax);
             Instantiate(friend, new Vector3(xPos, yPos, 0), Quaternion.identity);
-            yield return new WaitForSeconds(0.1f);
             friendCount++;
+           // Debug.Log("spawn friend");
         }
-        while(enemyCount < 4)
+        if (enemyCount < 3)
         {
-            xPos = Random.Range(xRangeMin, xRangeMax);
-            yPos = Random.Range(yRangeMin, yRangeMax);
-            Instantiate(enemy, new Vector3(xPos, yPos, 0), Quaternion.identity);
-            yield return new WaitForSeconds(1.0f);
-            enemyCount++;
+            while (enemyCount < 4)
+            {
+                xPos = Random.Range(xRangeMin, xRangeMax);
+                yPos = Random.Range(yRangeMin, yRangeMax);
+                Instantiate(enemy, new Vector3(xPos, yPos, 0), Quaternion.identity);
+                
+                enemyCount++;
+                //Debug.Log("spawn enemy");
+            }
         }
-        
-
-
     }
 
+
+
+   
 }

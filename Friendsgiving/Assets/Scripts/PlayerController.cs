@@ -21,6 +21,10 @@ public class PlayerController : MonoBehaviour
     private GameObject[] friends;
     private GameObject[] enemies;
 
+    public GameObject spawner1;
+    public GameObject spawner2;
+    public GameObject spawner3;
+
 
 
     void Start()
@@ -39,6 +43,7 @@ public class PlayerController : MonoBehaviour
         if (levelCounter == 0 && health == 3)
         {
             NextLevelScreen();
+            spawner1.gameObject.SetActive(false);
             transform.position = level2;
             Destroyer();
             levelCounter++;
@@ -47,6 +52,7 @@ public class PlayerController : MonoBehaviour
         else if (levelCounter == 1 && health == 4)
         {
             NextLevelScreen();
+            spawner2.gameObject.SetActive(false);
             transform.position = level3;
             Destroyer();
             levelCounter++;
@@ -54,6 +60,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (levelCounter == 2 && health == 5)
         {
+            spawner3.gameObject.SetActive(false);
             Destroyer();
             victory.gameObject.SetActive(true);
             
@@ -62,6 +69,7 @@ public class PlayerController : MonoBehaviour
         //game over
         if (health < 1)
         {
+           
             StartOver();
         }
 
@@ -110,6 +118,14 @@ public class PlayerController : MonoBehaviour
     public void NextLevel()
     {
         nextLevel.gameObject.SetActive(false);
+        if(levelCounter == 1)
+        {
+            spawner2.gameObject.SetActive(true);
+        }
+        else if(levelCounter == 2)
+        {
+            spawner3.gameObject.SetActive(true);
+        }
     }
 
     public void StartOver()

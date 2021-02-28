@@ -382,10 +382,13 @@ MonoBehaviour:
   health: 1
   runSpeed: 7
   level2: {x: 50, y: 0}
-  level3: {x: 0, y: 0}
+  level3: {x: 100, y: 0}
   lifeText: {fileID: 707939046}
   nextLevel: {fileID: 1111423274}
-  victory: {fileID: 0}
+  victory: {fileID: 151342507}
+  spawner1: {fileID: 2095890059}
+  spawner2: {fileID: 873311589}
+  spawner3: {fileID: 838353520}
 --- !u!61 &165571090
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15179,9 +15182,7 @@ MonoBehaviour:
   lines: {fileID: 1976920067}
   lineCounter: 0
   player: {fileID: 165571086}
-  enemies: {fileID: 1042483033}
-  enemySpawner: {fileID: 2095890059}
-  friendSpawner: {fileID: 178928222}
+  spawner: {fileID: 2095890059}
   music: {fileID: 394647552}
   newFont: {fileID: 12800000, guid: db875b1124ebdad409cce77572cd49cc, type: 3}
 --- !u!4 &394647551
@@ -15361,7 +15362,7 @@ Camera:
   far clip plane: 1000
   field of view: 37.0529
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -15850,6 +15851,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 838353521}
+  - component: {fileID: 838353522}
   m_Layer: 0
   m_Name: Spawner3
   m_TagString: Untagged
@@ -15871,6 +15873,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &838353522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838353520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c34e2f8888cf054193017991427875a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 2468181353966840836, guid: d60b777467de80e4a8c890468f97076e, type: 3}
+  friend: {fileID: 3274529193035196376, guid: d407f9ff722a9c644800c2a29e4f2782, type: 3}
+  xRangeMin: 88.5
+  xRangeMax: 107.5
+  yRangeMin: -7.5
+  yRangeMax: 5.5
 --- !u!1 &873311589
 GameObject:
   m_ObjectHideFlags: 0
@@ -15900,12 +15920,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c34e2f8888cf054193017991427875a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
-  friend: {fileID: 0}
-  xRangeMin: 0
-  xRangeMax: 0
-  yRangeMin: 0
-  yRangeMax: 0
+  enemy: {fileID: 2468181353966840836, guid: d60b777467de80e4a8c890468f97076e, type: 3}
+  friend: {fileID: 3274529193035196376, guid: d407f9ff722a9c644800c2a29e4f2782, type: 3}
+  xRangeMin: 38.5
+  xRangeMax: 63.5
+  yRangeMin: -7.5
+  yRangeMax: 7.5
 --- !u!4 &873311591
 Transform:
   m_ObjectHideFlags: 0
@@ -16228,7 +16248,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1014725688
 RectTransform:
   m_ObjectHideFlags: 0
@@ -70107,7 +70127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 2468181353966840836, guid: d60b777467de80e4a8c890468f97076e, type: 3}
-  friend: {fileID: 0}
+  friend: {fileID: 3274529193035196376, guid: d407f9ff722a9c644800c2a29e4f2782, type: 3}
   xRangeMin: -11.5
   xRangeMax: 13.5
   yRangeMin: -6.5
